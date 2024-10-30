@@ -1,0 +1,42 @@
+// You are given an integer array arr[]. The task is to find the sum of it.
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+    // Function to return sum of elements
+    int sum(vector<int> &arr)
+    {
+        int sum = 0;
+        for (int i = 0; i < arr.size(); i++)
+        {
+            sum += arr[i];
+        }
+        return sum;
+    }
+};
+
+int main()
+{
+    string ts;
+    getline(cin, ts);
+    int t = stoi(ts);
+
+    while (t--)
+    {
+        string line;
+        getline(cin, line);
+        stringstream ss(line);
+        vector<int> nums;
+        int num;
+        while (ss >> num)
+        {
+            nums.push_back(num);
+        }
+        Solution ob;
+        int ans = ob.sum(nums); // Pass the vector nums to the sum function
+        cout << ans << "\n~\n";
+    }
+    return 0;
+}
