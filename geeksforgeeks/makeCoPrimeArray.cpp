@@ -9,26 +9,31 @@ using namespace std;
 class Solution
 {
 public:
-    int countCoPrime(int a[], int n)
+    int countCoPrime(const vector<int> &arr)
     {
         // Complete the function
-        int c = 0;
-        for (int i = 0; i < n - 1; i++)
+        int ans = 0;
+        for (int i = 0; i < arr.size(); i++)
         {
-            if (gcd(a[i], a[i + 1]) != 1)
+            if (gcd(arr[i], arr[i + 1]) == 1)
             {
-                c++;
+                ans++;
+            }
+            else
+            {
+                continue;
             }
         }
-        return c;
+        return ans;
     }
-    static int gcd(int a, int b)
+
+    int gcd(int a, int b)
     {
-        if (a == 0)
+        if (b == 0)
         {
-            return b;
+            return a;
         }
-        return gcd(b % a, a);
+        return gcd(b, a % b);
     }
 };
 
