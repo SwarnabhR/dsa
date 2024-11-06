@@ -9,6 +9,19 @@ class Solution{
 public:	
 	void immediateSmaller(vector<int>&arr, int n) {
 	    //  code here
+        stack<int>st;
+        st.push(-1);
+        for (int i=n-1; i>=0; i--){
+            int curr= arr[i];
+            if(st.top()<curr){
+              arr[i]= st.top();
+              st.push(curr);
+          }
+          else{
+             arr[i]= -1;
+             st.push(curr);
+          }
+      }
 	}
 
 };
