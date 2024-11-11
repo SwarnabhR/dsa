@@ -10,7 +10,10 @@ class Solution {
   public:
     // Function to find the minimum number of moves required.
     int minMoves(vector<int> &arr) {
-        // code here.
+        int n = arr.size();
+        int c{n};
+        while ( n-- ) if ( arr[ n ] == c ) c--;
+        return c;
     }
 };
 
